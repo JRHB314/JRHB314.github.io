@@ -24,73 +24,61 @@ Now we will try connecting to a non-Oracle Cloud Database; in this case, Google'
 
 ### **STEP 1**: Set Up Database
 
-<details>
-  <summary>Create Firebase Account</summary>
-  <br>
-  
-  Visit [Firebase's website](https://firebase.google.com/). On the top right corner, click `Sign in`.
-  
-  ![](/images/lab300/300-1.png)<br>
-  <br>
-  
-  Your Firebase account is automatically linked with your google account, so you can sign in with your gmail account credentials to get started. If you don't have one, sign up for one and then revisit the Firebase website. Once logged in, click `Get Started`.
-  
-  ![](/images/lab300/300-2.png)<br>
-  <br>
-  
-  You are now on the main dashboard page and can move on to the next section.
-  
-  ![](/images/lab300/300-3.png)<br>
-  <br>
-  
-</details>
+<b>Create Firebase Account</b>
 
-<details>
-  <summary>Create Realtime Database</summary>
-  <br>
-  
-  Click "Add Project". Choose a name, leave the default settings for location, make sure all three boxes are checked, then hit Create Project.<br>
- 
-  ![](/images/lab300/300-3-4.png)<br>
-  <br>
-  
-  It will take 10 seconds or so to create, then the page should redirect you to your Database home page. Note that currently, there is no data in our database.<br>
-  ![](/images/lab300/300-3-5.png)<br>
-  <br>
-  First thing we need to do is edit the security rules to allow read write access. Since this is just a test database, it doesn't need to be secure. Go to the Rules tab and simply change read and write to "true". For a real project, you would want more specific rules. Google has documentation on how to create more complex rules [here](https://firebase.google.com/docs/database/security). <br>
-  ![](/images/lab300/300-3-12.png)<br>
-  
-</details>
+Visit [Firebase's website](https://firebase.google.com/). On the top right corner, click `Sign in`.
 
-<details>
-  <summary>Populate Database</summary>
-  <br>
-  
-  Now, inside this GitHub repository, navigate to the "resources" directory and download the bookList.json file. Open it inside VCode or your preferred text editor. Note the structure is of several book objects identified by ISBN. <br>
-  ![](/images/lab300/300-3-6.png)<br>
-  <br>
-  Go back to the Data tab of your Database. Near the top right, hit the three dots dropdown, then "Import JSON".<br>
-  ![](/images/lab300/300-3-7.png)<br>
-  <br>
-  Import the bookList.json file.<br>
-  ![](/images/lab300/300-3-8.png)<br>
-  <br>
-  Your database should populate with the information from the file.<br>
-  ![](/images/lab300/300-3-9.png)<br>
-  <br>
-  To test that everything is set up correctly, enter the shown url for the Database /books.json into a browser with `/books.json` appended to the end of the URL.<br>
-  ![](/images/lab300/300-3-10.png)<br>
-  ```
-  https://projectname-XXXXX.firebaseio.com/books.json
-  ```
-  A list of the books and all their info should be shown. <br>
-  ![](/images/lab300/300-3-11.png)<br>
-  <br>
+![](/images/lab300/300-1.png)<br>
 
-  <b>Side Note</b>: If the formatting of your data looks different, add the JSON Viewer extension to your Chrome browser: https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US.
+Your Firebase account is automatically linked with your google account, so you can sign in with your gmail account credentials to get started. If you don't have one, sign up for one and then revisit the Firebase website. Once logged in, click `Get Started`.
 
-</details>
-  
+![](/images/lab300/300-2.png)<br>
+
+You are now on the main dashboard page and can move on to the next section.
+
+![](/images/lab300/300-3.png)<br>
+
+<b>Create Realtime Database</b>
+
+Click `Add Project`. Choose a name, leave the default settings for location, make sure all three boxes are checked, then hit `Create Project`.<br>
+
+![](/images/lab300/300-3-4.png)<br>
+
+It will take about 10 seconds or so to create the project. The page should then redirect you to your Database Home Page. Note that as it is, we have only just made our database; there is no actual data in our database yet.<br>
+
+![](/images/lab300/300-3-5.png)<br>
+
+The first thing that we need to do is to `edit the security rules of our database to allow read/write access`. Because this is a trivial database, we can assume that it doesn't necessarily need to be secure. For something like an enterprise-level project, however, we'd want more specific rules to be created. Google has documentation for that [here]!(https://firebase.google.com/docs/database/security). For now, go to the `Rules` tab and simply change `read` and `write` to `true`.
+
+<!-- [here (https://firebase.google.com/docs/database/security).<br> -->
+
+<b>Populate Database</b>
+
+Inside this GitHub repository, navigate to the `resources` directory and download the `bookList.json` file. Open it inside your preferred text editor. Note the structure is of several book objects identified by ISBN. <br>
+
+![](/images/lab300/300-3-6.png)<br>
+
+Go back to the Data tab of your Database. Near the top right, hit the three dots dropdown, then "Import JSON".<br>
+
+![](/images/lab300/300-3-7.png)<br>
+
+Import the bookList.json file.<br>
+
+![](/images/lab300/300-3-8.png)<br>
+
+Your database should populate with the information from the file.<br>
+![](/images/lab300/300-3-9.png)<br>
+<br>
+To test that everything is set up correctly, enter the shown url for the Database /books.json into a browser with `/books.json` appended to the end of the URL.<br>
+![](/images/lab300/300-3-10.png)<br>
+```
+https://projectname-XXXXX.firebaseio.com/books.json
+```
+A list of the books and all their info should be shown. <br>
+![](/images/lab300/300-3-11.png)<br>
+<br>
+
+<b>Side Note</b>: If the formatting of your data looks different, add the JSON Viewer extension to your Chrome browser: https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US.
 
 ### **STEP 2**: Loading Book Data on VBCS
 
