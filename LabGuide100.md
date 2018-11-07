@@ -63,7 +63,6 @@ Name the application whatever you like; the `Description` field is optional.
 
 Your new Application should open automatically. 
 
-
 ### **STEP 2**: Creating a Web App
 
 <b>Customize Web App</b>
