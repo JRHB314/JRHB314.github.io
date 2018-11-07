@@ -71,7 +71,6 @@ Your new Application should open automatically.
 On the left, hit the computer icon for `Web Apps`, then the `+` to create a new Web App. Name it, then hit `Create`. 
 
 <br>![](/images/lab100/100-11.png)<br>
-<br>
 
 A blank page will open in the center, with a `Components Bar` to the left and `Component Customization` on the right.<br>
 
@@ -108,7 +107,7 @@ In addition, we can also edit the HTML and CSS code directly. Near the top right
 
 ![](/images/lab100/100-1-19.png)<br>
 
-To customize the tab bar, we'll first define some style. Simply paste this at the top of the Code page:<br>
+To customize the tab bar, we'll first define some style. Simply paste this at the top of the Code page:
 
 `
 <style>
@@ -123,7 +122,6 @@ border-style: groove;
 </style>
 `
 
-<br>
 We will add this code to help style to our tabs. `.dull` shows the tab that we are currently on, and `.bright` shows the tabs we are not on.<br>
 
 ![](/images/lab100/100-1-20.png)<br>
