@@ -1,7 +1,7 @@
 ![](images/Picture-lab400.png)  
 Updated: November 6, 2018
 
-## Introduction check4.5
+## Introduction check 5
 
 In this part of the lab, we'll learn a bit about how Graph Databases work, and see how to integrate them with VBCS. Specifically, we'll be using a free Graph Database called Neo4j.
 
@@ -24,35 +24,29 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
 ## Connecting VBCS to a Graph Database (Neo4j)
 
 ### **STEP 1**: Set Up Neo4j Database
-
+<br>
 <b> Make a GrapheneDB Account and Database </b>
-  <br>
-  
+  <br>  
   GrapheneDB is an easy way to get up and running with Neo4j, with a free sandbox trial. <br> Visit [Graphene DB](https://app.graphenedb.com/) and sign up for an account. Login to the dashboard, then click `Create Database`.
   
   ![](/images/david-gdb-1.png)<br>
 <br>
-  
   Select the free "Sandbox" tier.<br>
   
   ![](/images/david-gdb-2.png)<br>
 <br>
-
   Give your database a name. Leave the default Neo4j Version as 3.4.9 and click `Create Database`.<br>
-
+  
   ![](/images/david-gdb-3.png)<br>
 <br>
-
   On the next page, a pop up should appear asking you to create a user. Click `Create user now`.<br>
   
   ![](/images/david-gdb-4.png)<br>
 <br>
-
   Give your user a Label with no expiration date and click `Create User`.<br>
   
   ![](/images/david-gdb-5.png)<br>
 <br>
-
   <b>Copy down your credentials. This is the only time you'll be able to see the password, so make a note of it.</b><br>
   
   ![](/images/david-gdb-6.png)<br>
@@ -84,9 +78,7 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
   
   ![](/images/david-gdb-10.png)<br>
 <br>
-  
   With 2 nodes and a relationship successfully created, let's create a 3rd node and relationship. Enter the following code snippet in the console:
-  
   ```
   CREATE (userC:Person {name:"C"})
   CREATE (userA)-[rel:FOLLOWS]->(userC)
@@ -95,7 +87,6 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
   
   ![](/images/david-gdb-11.png)<br>
 <br>
-  
   Uh oh, it looks like the A node showed up blank. Why is that? We created userA in the previous Cypher statement, but because we are writing a separate Cypher statement, it has no idea how to reference that userA. That is, the references we create to nodes only last one statement, and can be changed in the next; "userA" is not stored as a property of "A". We could call it "N", "nodeA", or whatver we want, and it only has to be consistent within the query. <br>
   
   Now we have to first find A and C since we just created them using `MATCH`. This is similar to a SELECT statement in SQL, and this allows us to use "userA" and "userC" as references.
@@ -109,25 +100,21 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
 
   ![](/images/david-gdb-12.png)<br>
 <br>
-
   Great! A is now properly following C.<br>
   
-However, if we run `MATCH (n) RETURN (n)` to return all nodes, we'll see that there's still that empty node following C: 
+  However, if we run `MATCH (n) RETURN (n)` to return all nodes, we'll see that there's still that empty node following C: 
 
 ![](/images/david-gdb-13.png)<br>
 <br>
-
 To get rid of it, hover over the invisible node, grab its id and run `MATCH (n) where id(n) = # DETACH DELETE n` where # is the ID of the node.<br>
 
 ![](/images/david-gdb-14.png)<br>
 <br>
-
 Also note that `MATCH (n) RETURN (n)` simply returns all nodes; it doesn't <i>technically</i> return their relationships. The Graph visualizer will show these relationships anyway, but the JSON returned (look at the `Table` tab) does not. To return all nodes and their relationships, run `MATCH (n)-[r]->(m) RETURN n,r,m;`.
 
 ![](/images/david-gdb-15.png)<br>
 <br>
-  
-Great! Everything looks correct. Now let's say that we want userC to be followed by 5 other users. We could create 5 followers and then define their relationship with userC, but the easier approach would be to use a `FOREACH` loop:
+OK! Everything looks correct. Now let's say that we want userC to be followed by 5 other users. We could create 5 followers and then define their relationship with userC, but the easier approach would be to use a `FOREACH` loop:
   
   ```
   MATCH (userC:Person {name:"C"})
@@ -139,7 +126,6 @@ Great! Everything looks correct. Now let's say that we want userC to be followed
   
   ![](/images/david-gdb-16.png)<br>
 <br>
-  
   Notice that here in the relationship, we don't need to write `[rel:FOLLOWS]` because we are simply creating the relationship, and don't reference it later in the query.<br>
   
   If we want to view who follows userC:
@@ -150,17 +136,15 @@ Great! Everything looks correct. Now let's say that we want userC to be followed
   ```
   
   ![](/images/david-gdb-17.png)<br>
-<br>
-  
+<br> 
   Now that we've had a little practice with Neo4j and graph databases, let's jump into creating the actual data we'll use to mimic our "Instagram model". We need a clean start, so let's reset the database with:
-
   ```
     MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n,r
   ```
+<br>
 
   <b> Create User Relationships </b>
   <br>
-  
   Let's create a user named Rachel Webb. Then, let's create some people that follow her:
   
   ```
