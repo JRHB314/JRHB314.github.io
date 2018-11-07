@@ -48,22 +48,18 @@ Alternatively, you can hit the `Customize` button on the top right. This would a
 Next, download the generated SSH key and credentials in order to continue, which will allow you to access your instance.
 
 <br>![](/images/lab100/100-12.png)<br>
-<br>
 
 Your instance will take some time to provision. When it's ready, open the `Visual Builder Home Page`.
 
 <br>![](/images/lab100/100-8.png)<br>
-<br>
 
 Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New` in the top right. 
 
 <br>![](/images/lab100/100-9.png)<br>
-<br>
 
 Name the application whatever you like; the `Description` field is optional. 
 
 <br>![](/images/lab100/100-10.png)<br>
-<br>
 
 Your new Application should open automatically. 
 
