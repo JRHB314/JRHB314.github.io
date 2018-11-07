@@ -67,6 +67,7 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
 5. Tools, i.e., the Neo4j Browser.
 
   Go ahead and click on `Launch` now. <br>
+<br>
 ![](/images/browser.png)<br>
 
   At the very top is where we will put our Cypher code. The play button in the top right will then run these statements. Alternatively, the keyboard shortcut to run the code is ctrl+enter on Windows, or cmd+enter on Mac. The boxes below are where the results will be displayed; right now, it simply shows some starting information and our connection status. <br>
