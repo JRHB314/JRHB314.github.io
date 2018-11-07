@@ -55,7 +55,19 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
 
 <b> GrapheneDB Interface </b>
   <br>
-  ADD A RUN DOWN OF GRAPHENEDB TABS etc
+  
+  Let's just breifly go over the options available in GrapheneDB. <br>
+<br>
+{page1}<br>
+  On the Overview page, we can see 
+1. The name of our database. 
+2. The type of database, it's storage usage, and an option to upgrade or clone it. 
+3. Version, region, and encryption information.
+4. Node and relationship usage.
+5. Tools, i.e., the Neo4j Browser.
+
+Go ahead and click on `Launch` now. 
+  
   
 
 ### **STEP 2**: Working with Neo4j
