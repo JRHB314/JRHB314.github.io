@@ -66,8 +66,18 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
 4. Node and relationship usage.
 5. Tools, i.e., the Neo4j Browser.
 
-Go ahead and click on `Launch` now. 
-  
+  Go ahead and click on `Launch` now. <br>
+{browser}<br>
+
+  At the very top is where we will put our Cypher code. The play button in the top right will then run these statements. Alternatively, the keyboard shortcut to run the code is ctrl+enter on Windows, or cmd+enter on Mac. The boxes below are where the results will be displayed; right now, it simply shows some starting information and our connection status. <br>
+<br>
+  Back on GrapheneDB, take a look at the Connection tab.<br>
+{page2}<br>
+1. Shows private network access; since we are using a sandbox account, it is not available. However, we don't need it for this lab.
+2. Connection strings; we will be using the HTTP REST endpoint.
+3. Finally, it shows the Database users. There should be two; one, the database user you created when you created your database; two, the browser session we just opened. Browser sessions automatically expire after 12 hours, but it's simple to launch a new one. <br>
+<br>
+Those two tabs, plus the browser, are all we need to use for now.
   
 
 ### **STEP 2**: Working with Neo4j
