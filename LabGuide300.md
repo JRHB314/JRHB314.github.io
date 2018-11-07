@@ -48,7 +48,7 @@ It will take about 10 seconds or so to create the project. The page should then 
 
 ![](/images/lab300/300-3-5.png)<br>
 
-The first thing that we need to do is to `edit the security rules of our database to allow read/write access`. Because this is a trivial database, we can assume that it doesn't necessarily need to be secure. For something like an enterprise-level project, however, we'd want more specific rules to be created. Google has documentation for that [here]!(https://firebase.google.com/docs/database/security). For now, go to the `Rules` tab and simply change `read` and `write` to `true`.
+The first thing that we need to do is to `edit the security rules of our database to allow read/write access`. Because this is a trivial database, we can assume that it doesn't necessarily need to be secure. For something like an enterprise-level project, however, we'd want more specific rules to be created. Google has documentation for that [here](https://firebase.google.com/docs/database/security). For now, go to the `Rules` tab and simply change `read` and `write` to `true`.
 
 <!-- [here (https://firebase.google.com/docs/database/security).<br> -->
 
