@@ -32,44 +32,41 @@ Go to the [Cloud sign in page](https://cloud.oracle.com/en_US/sign-in).
 Sign in to your Cloud Account. <br>
 ![](/images/lab100/100-1.png) <br>
 ![](/images/lab100/100-2.png) <br>
-<br>
 
 Navigate to Cloud Dashboard, then open the Visual Builder Service Console. If Visual Builder is not visible, click `Customize Dashboard`, then scroll to Visual Builder in the list and hit `Show`.<br>
 
-![](/images/lab100/100-3.png) <br> <br>
-  
+![](/images/lab100/100-3.png) <br>
 
-<details>
-  <summary>Create Visual Builder Instance</summary>
+<b>Create Visual Builder Instance</b>
 
-  At the top right of the page, hit "Quick Starts". This will allow us to create the underlying infrastructure for VBCS at the same time that we create the VBCS instance rather than making them separately. Simply name the instance and then hit `Create`. If you don't care about configuring the database that your instance will run on, this is the way to go. 
+At the top right of the page, hit `Quick Starts`. This will allow us to create the underlying infrastructure for VBCS at the same time that we create the VBCS instance rather than making them separately. Simply name the instance and then hit `Create`. If you don't care about configuring the database that your instance will run on, this is the way to go. 
 
-  Alternatively, you can hit the `Customize` button on the top right. This would allow you to configure the database that is created. For the purpose of this lab, we'll stick to the default QuickStart configuration.
+Alternatively, you can hit the `Customize` button on the top right. This would allow you to configure the database that is created. For the purpose of this lab, we'll stick to the default QuickStart configuration.
 
-  ![](/images/lab100/100-5.png)<br><br>
+![](/images/lab100/100-5.png)<br><br>
 
-  Next, download the generated SSH key and credentials in order to continue, which will allow you to access your instance.
+Next, download the generated SSH key and credentials in order to continue, which will allow you to access your instance.
 
-  <br>![](/images/lab100/100-12.png)<br>
-  <br>
+<br>![](/images/lab100/100-12.png)<br>
+<br>
 
-  Your instance will take some time to provision. When it's ready, open the Visual Builder Home page.
+Your instance will take some time to provision. When it's ready, open the Visual Builder Home page.
 
-  <br>![](/images/lab100/100-8.png)<br>
-  <br>
+<br>![](/images/lab100/100-8.png)<br>
+<br>
 
-  Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New` in the top right. 
+Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New` in the top right. 
 
-  <br>![](/images/lab100/100-9.png)<br>
-  <br>
+<br>![](/images/lab100/100-9.png)<br>
+<br>
 
-  Name the application whatever you like; the Description is optional. 
+Name the application whatever you like; the Description is optional. 
 
-  <br>![](/images/lab100/100-10.png)<br>
-  <br>
+<br>![](/images/lab100/100-10.png)<br>
+<br>
 
-  Your new Application should open automatically. 
-</details>
+Your new Application should open automatically. 
+
 
 ### **STEP 2**: Creating a Web App
 
