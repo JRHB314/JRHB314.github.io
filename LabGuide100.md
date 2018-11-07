@@ -43,7 +43,7 @@ At the top right of the page, hit `Quick Starts`. This will allow us to create t
 
 Alternatively, you can hit the `Customize` button on the top right. This would allow you to configure the database that is created. For the purpose of this lab, we'll stick to the default QuickStart configuration.
 
-![](/images/lab100/100-5.png)<br><br>
+![](/images/lab100/100-5.png)<br>
 
 Next, download the generated SSH key and credentials in order to continue, which will allow you to access your instance.
 
