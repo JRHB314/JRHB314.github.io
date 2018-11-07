@@ -108,7 +108,7 @@ In addition, we can also edit the HTML and CSS code directly. Near the top right
 
 To customize the tab bar, we'll first define some style. Simply paste this at the top of the Code page:
 
-`
+```
 <style>
 .bright {
 background-color: #4286f4;
@@ -119,7 +119,7 @@ background-color: #7790ba;
 border-style: groove;
 }
 </style>
-`
+```
 
 We will add this code to help style to our tabs. `.dull` shows the tab that we are currently on, and `.bright` shows the tabs we are not on.<br>
 
