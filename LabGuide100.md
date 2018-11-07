@@ -25,21 +25,19 @@ This lab will start with creating your first Web App in VBCS.
 
 ### **STEP 1**: Getting Started
 
-<details>
-  <h3>Sign in to your Cloud Account</h3> Hi
+<b>Sign in to your Cloud Account</b> Hi
 
-  Go to the [Cloud sign in page](https://cloud.oracle.com/en_US/sign-in).
+Go to the [Cloud sign in page](https://cloud.oracle.com/en_US/sign-in).
 
-  Sign in to your Cloud Account. <br>
-  ![](/images/lab100/100-1.png) <br>
-  ![](/images/lab100/100-2.png) <br>
-  <br>
+Sign in to your Cloud Account. <br>
+![](/images/lab100/100-1.png) <br>
+![](/images/lab100/100-2.png) <br>
+<br>
 
-  Navigate to Cloud Dashboard, then open the Visual Builder Service Console. If Visual Builder is not visible, click `Customize Dashboard`, then scroll to Visual Builder in the list and hit `Show`.<br>
+Navigate to Cloud Dashboard, then open the Visual Builder Service Console. If Visual Builder is not visible, click `Customize Dashboard`, then scroll to Visual Builder in the list and hit `Show`.<br>
 
-  ![](/images/lab100/100-3.png) <br> <br>
+![](/images/lab100/100-3.png) <br> <br>
   
-</details>
 
 <details>
   <summary>Create Visual Builder Instance</summary>
