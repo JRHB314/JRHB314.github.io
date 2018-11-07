@@ -90,7 +90,7 @@ In the row below the logo and header, drag over a `tab bar`. The tab bar default
 
 ![](/images/lab100/100-17.png)<br>
 
-The tab bar have two tabs now, and it should look like:<br>
+The tab bar should have two tabs now; it should look like:<br>
 
 ![](/images/lab100/100-1-17.5.png)<br>
 
