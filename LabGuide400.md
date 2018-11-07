@@ -1,7 +1,7 @@
 ![](images/Picture-lab400.png)  
 Updated: November 6, 2018
 
-## Introduction check3
+## Introduction check4
 
 In this part of the lab, we'll learn a bit about how Graph Databases work, and see how to integrate them with VBCS. Specifically, we'll be using a free Graph Database called Neo4j.
 
@@ -242,8 +242,6 @@ First we MATCH "n" to the node with name "UserName". Then we use SET to add thes
 
   Phew! And we're done. To recap, we added a Person named Rachel Webb, gave her followers, and then added some more followers to Rachel Webb's followers through our createFollowers resource. Then, we added two more attributes to each person: their image URL, and a quote that they display. Awesome!
   
-</details>
-</details>
 
 ### **STEP 3**: Show User Profile Info on VBCS
 
@@ -348,11 +346,8 @@ The response should look like this:
 }
 ```
 In the top right of the response, hit `Copy to Response Body`. Now hit Create.<br>
-</details>
 
-<details>
-  <summary> Call REST Endpoint </summary>
-  <br>
+  <b> Endpoint </b>
   
   <br>This means we can set up an Action Chain. Back on our web page, click the search button to go to its Events tab; hit `New Event`, then `QuickStart: click`. <br>
 ![](/images/4-22.5.png)<br>
