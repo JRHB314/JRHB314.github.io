@@ -131,7 +131,7 @@ Back on the design tab, we can view changes we made to the tab bar. As demonstra
   
 <b>Add Navigation</b>
 
-<br>In order for this tab bar to actually navigate the website, we need a second page to navigate <i>to</i>. We want to carry over the components from the first page to this home page (logo, title, navbar) so we'll go ahead and copy it. Go to the Web App heirarchy on the left, right click on main-start and hit `Duplicate`. Then rename the page `second-page`. On the `Code` view, paste the code we copied.<br>
+In order for this tab bar to actually navigate the website, we need a second page to navigate <i>to</i>. We want to carry over the components from the first page to this home page (logo, title, navbar) so we'll go ahead and copy it. Go to the Web App heirarchy on the left, right click on main-start and hit `Duplicate`. Then rename the page `second-page`. On the `Code` view, paste the code we copied.<br>
 
 ![](/images/lab100/100-1-33.png)<br>
 
@@ -190,13 +190,10 @@ where eventName is the name of your event for each tab (i.e., clickHomeTab and c
 
 ![](/images/lab100/100-1-34.png)<br>
 
-Note that many components have an Events tab that allows you to create an event and action chain all in one click, but    
-because we want different parts of the tab bar to take us to different pages, we have to set them up manually.<br>
-The Events tab is very useful for things such as buttons, where you can quickly create an action for when the button is 
-clicked.<br>
+<i>Note that the `Events` tab is very useful for things such as buttons where you can quickly create an action for when the button is clicked. However, in this case, because we want different parts of our tab bar to take us to different pages, we have to set them up manually.</i><br>
 
-Finally, add the onclick listeners for the second page, and you should be good to go! You now have a functional website.<br>
+Finally, add the `onclick listeners` for the second page, and you should be good to go! You now have a functional website.<br>
 
-Click on the play button in the top right to test your website, seeing that you can navigate between the two pages.<br>
+Click on the play button in the top right to test your website, seeing that you can now navigate between the two pages.<br>
 
 ![](/images/lab100/100-1-7.png)
