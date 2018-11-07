@@ -347,135 +347,138 @@ Great job!
 
 ### **STEP 2**: Searching Books on VBCS
 
-<details>
-  <summary> Set Up Search Page </summary>
-  <br>
-  
-  Let's review what we've done until this point. So far, we've built our web application, created a Firebase database and populated it with information, and wrote custom Javascript to extract data from our database URL. We invoked those functions and had them run at page load time, and we were able to display book images and descriptions on our catalog page. Great! But what if we want to display books based on a user search? That takes a bit of extra work. We'll need to first capture the user's input, and then parse our JSON object accordingly.<br>
-  
-  First create a third page for this website's search functionality. We'll call it "search". Duplicate `main-start` and rename the copy `search`.<br> 
-Change "Welcome to the Home page." to say "Search". Drag and drop a `user input` box for the user to type in their search term, followed by a `button` for running that search. Click on the `Input Text` label and change it to say "Genre:". Let's also drag over a button to the right of the input text. Change the text of the button to "search".<br> 
- 
- ![](/images/lab300/300-3-ds3.png)<br>
-<br>
+<b> Set Up Search Page </b>
+
+Let's review what we've done until this point. So far, we've built our web application, created a Firebase database and populated it with information, and wrote custom Javascript to extract data from our database URL. We invoked those functions and had them run at page load time, and we were able to display book images and descriptions on our catalog page. Great! But what if we want to display books based on a user search? That takes a bit of extra work. We'll need to first capture the user's input, and then parse our JSON object accordingly.<br>
+
+First create a third page for this website's search functionality. We'll call it `search`. Duplicate `main-start` and rename the copy `search`.<br> 
+
+Change "Welcome to the Home page" to say "Search". Drag and drop a `user input` box for the user to type in their search term, followed by a `button` for running that search. Click on the `Input Text` label and change it to say `Genre:`. Let's also drag over a `button` to the right of the input text. Change the text of the button to `search`.<br> 
+
+![](/images/lab300/300-3-ds3.png)<br>
 
 Note, however, that we only have three tabs; we need to make one more tab for the new page.<br>
-Briefly,<br>
--Copy and paste code for a new tab in each page.<br>
--Change the tab name to "Search" and the onclick listener to clickSearchTab.<br>
--Create an action chain navigateSearchPage at the flow level.<br>
--Create an event listener on each page called clickSearchTab.<br>
-Review Step 2. if you want more specific instructions. 
+* Briefly:<br>
+        * Copy and paste code for a new tab in each page.
+        * Change the tab name to "Search" and the onclick listener to clickSearchTab.
+        * Create an action chain navigateSearchPage at the flow level.
+        * Create an event listener on each page called clickSearchTab.
 
- ![](/images/lab300/300-3-30.png)<br>
+<i>Review Step 2. if you want more specific instructions.</i> 
+
+* Bullet list
+              * Nested bullet
+                  * Sub-nested bullet etc
+          * Bullet list item 2
+
+![](/images/lab300/300-3-30.png)<br>
 <br>
- 
-  Now that we've finished our simple layout, we need to save the user's input into a variable. On the left side click the (x) icon to open up `Variables` page. Create a new variable and call it "genre".<br>
- 
- ![](/images/lab300/300-david-search-5.png)<br>
+
+Now that we've finished our simple layout, we need to save the user's input into a variable. On the left side click the (x) icon to open up `Variables` page. Create a new variable and call it "genre".<br>
+
+![](/images/lab300/300-david-search-5.png)<br>
 <br>
- 
- Go back to the search page and click on the text input box. Under `Data`, enter `{{ $page.variables.genre }}`. This saves the value that the user types into our genre variable.
- 
- ![](/images/lab300/300-david-search-6.png)<br>
+
+Go back to the search page and click on the text input box. Under `Data`, enter `{{ $page.variables.genre }}`. This saves the value that the user types into our genre variable.
+
+![](/images/lab300/300-david-search-6.png)<br>
 <br>
 </details>
 
 <details>
-  <summary> Create Search Function </summary>
-  <br>
-  
-  Next, let's copy over the Javascript code. Under the `JS` tab of our catalog page, copy and paste the two slightly modified functions below onto our search page. 
- 
- ```
-   PageModule.prototype.loadDescriptions = function (inputGenre) { // our function now takes in a "genre" input
-
-        const app = document.getElementById('rightColumn');      
-
-        var request = new XMLHttpRequest();
-        request.open('GET', 'https://asset-bdf37.firebaseio.com/results.json', true);
-
-        request.onload = function () {
-          // Begin accessing JSON data here
-          var data = JSON.parse(this.response);
-          if (request.status >= 200 && request.status < 400) {
-            Object.keys(data).forEach(result => {     
-              if(data[result].genre == inputGenre){ // we'll only want to display descriptions for a specific genre
-                const line = document.createElement('hr');
-                app.appendChild(line);
-
-                const title = document.createElement('p');
-                title.textContent = data[result].title;
-                app.appendChild(title);
-                const author = document.createElement('p');
-                author.textContent = data[result].author;
-                app.appendChild(author);
-                const ISBN = document.createElement('p');
-                ISBN.textContent = result;
-                app.appendChild(ISBN);
-                const genre = document.createElement('p');
-                genre.textContent = data[result].genre;
-                app.appendChild(genre);
-                const published = document.createElement('p');
-                published.textContent = data[result].publish_date;
-                app.appendChild(published);
-                const publisher = document.createElement('p');
-                publisher.textContent = data[result].publisher;
-                app.appendChild(publisher);
-
-                const space = document.createElement('img');
-                space.src = "https://i.imgur.com/gAYM6Ws.png?3";
-                app.appendChild(space);
-              }
-            });
-          }
-          else {
-            const errorMessage = document.createElement('marquee');
-            errorMessage.textContent = "Request failed.";
-            app.appendChild(errorMessage);
-          }
-        }
-        request.send();
-      }; 
- ```
- 
- ```
-   PageModule.prototype.loadImages = function(inputGenre) { // our function now takes in a "genre" input
-        const app = document.getElementById('leftColumn');
-
-        var request = new XMLHttpRequest();
-        request.open('GET', 'https://asset-bdf37.firebaseio.com/results.json', true);
-
-        request.onload = function () {
-          // Begin accessing JSON data here
-          var data = JSON.parse(this.response);
-          if (request.status >= 200 && request.status < 400) {
-            Object.keys(data).forEach(result => {
-              if(data[result].genre == inputGenre){ // we'll only want to display images for a specific genre
-                const bookCovers = document.createElement('img');
-                bookCovers.src = data[result].image_url;
-                console.log(result);
-                app.appendChild(bookCovers);
-                const p = document.createElement('p');
-                p.textContent = "\n";
-                app.appendChild(p);
-              }
-            });
-          }
-          else {
-            const errorMessage = document.createElement('marquee');
-            errorMessage.textContent = "Request failed.";
-            app.appendChild(errorMessage);
-          }
-        }
-
-        request.send();
-      };
- ```
- 
- ![](/images/lab300/300-david-search-7.png)<br>
+<summary> Create Search Function </summary>
 <br>
-</details>
+
+Next, let's copy over the Javascript code. Under the `JS` tab of our catalog page, copy and paste the two slightly modified functions below onto our search page. 
+
+```
+ PageModule.prototype.loadDescriptions = function (inputGenre) { // our function now takes in a "genre" input
+
+      const app = document.getElementById('rightColumn');      
+
+      var request = new XMLHttpRequest();
+      request.open('GET', 'https://asset-bdf37.firebaseio.com/results.json', true);
+
+      request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        if (request.status >= 200 && request.status < 400) {
+          Object.keys(data).forEach(result => {     
+            if(data[result].genre == inputGenre){ // we'll only want to display descriptions for a specific genre
+              const line = document.createElement('hr');
+              app.appendChild(line);
+
+              const title = document.createElement('p');
+              title.textContent = data[result].title;
+              app.appendChild(title);
+              const author = document.createElement('p');
+              author.textContent = data[result].author;
+              app.appendChild(author);
+              const ISBN = document.createElement('p');
+              ISBN.textContent = result;
+              app.appendChild(ISBN);
+              const genre = document.createElement('p');
+              genre.textContent = data[result].genre;
+              app.appendChild(genre);
+              const published = document.createElement('p');
+              published.textContent = data[result].publish_date;
+              app.appendChild(published);
+              const publisher = document.createElement('p');
+              publisher.textContent = data[result].publisher;
+              app.appendChild(publisher);
+
+              const space = document.createElement('img');
+              space.src = "https://i.imgur.com/gAYM6Ws.png?3";
+              app.appendChild(space);
+            }
+          });
+        }
+        else {
+          const errorMessage = document.createElement('marquee');
+          errorMessage.textContent = "Request failed.";
+          app.appendChild(errorMessage);
+        }
+      }
+      request.send();
+    }; 
+```
+
+```
+ PageModule.prototype.loadImages = function(inputGenre) { // our function now takes in a "genre" input
+      const app = document.getElementById('leftColumn');
+
+      var request = new XMLHttpRequest();
+      request.open('GET', 'https://asset-bdf37.firebaseio.com/results.json', true);
+
+      request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        if (request.status >= 200 && request.status < 400) {
+          Object.keys(data).forEach(result => {
+            if(data[result].genre == inputGenre){ // we'll only want to display images for a specific genre
+              const bookCovers = document.createElement('img');
+              bookCovers.src = data[result].image_url;
+              console.log(result);
+              app.appendChild(bookCovers);
+              const p = document.createElement('p');
+              p.textContent = "\n";
+              app.appendChild(p);
+            }
+          });
+        }
+        else {
+          const errorMessage = document.createElement('marquee');
+          errorMessage.textContent = "Request failed.";
+          app.appendChild(errorMessage);
+        }
+      }
+
+      request.send();
+    };
+```
+
+![](/images/lab300/300-david-search-7.png)<br>
+<br>
 
 <details>
   <summary> Call Search Function </summary>
