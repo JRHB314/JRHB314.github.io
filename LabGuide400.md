@@ -18,6 +18,7 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
 ## Required Artifacts
 
 - A Cloud trial account
+- A GrapheneDB Account
 
 # Lab 400
 
