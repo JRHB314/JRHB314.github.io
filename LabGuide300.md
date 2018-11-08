@@ -16,7 +16,8 @@ Now we will try connecting to a non-Oracle Cloud Database; in this case, Google'
 
 ## Required Artifacts
 
-- Cloud trial account.
+- Cloud trial account
+- Google account
 
 # Lab 300
 
