@@ -302,7 +302,7 @@ Click on the name of your event, then on the right side hit the link to open the
 ![](/images/lab300/300-3-17.png)<br>
 Drag "Call Module Function" onto the plus sign.<br>
 ![](/images/lab300/300-3-18.png)<br>
-Select Module Function. You should see a Page Function named loadDescriptions in the list. Select it, and you should be good to go.<br>
+Select Module Function. You should see a Page Function named `loadDescriptions` in the list. Select it, and you should be good to go.<br>
 ![](/images/lab300/300-3-19.png)<br>
 Test the page, and the books should appear on the Catalog page. <br>
 ![](/images/lab300/300-3-20.png)<br>
@@ -354,7 +354,7 @@ Let's review what we've done until this point. So far, we've built our web appli
 
 First create a third page for this website's search functionality. We'll call it `search`. Duplicate `main-start` and rename the copy `search`.<br> 
 
-Change "Welcome to the Home page" to say "Search". Drag and drop a `user input` box for the user to type in their search term, followed by a `button` for running that search. Click on the `Input Text` label and change it to say `Genre:`. Let's also drag over a `button` to the right of the input text. Change the text of the button to `search`.<br> 
+Change `Welcome to the Home page` to say `Search`. Drag and drop a `user input` box for the user to type in their search term, followed by a `button` for running that search. Click on the `Input Text` label and change it to say `Genre:`. Let's also drag over a `button` to the right of the input text. Change the text of the button to `search`.<br> 
 
 ![](/images/lab300/300-3-ds3.png)<br>
 
@@ -376,12 +376,8 @@ Now that we've finished our simple layout, we need to save the user's input into
 Go back to the search page and click on the text input box. Under `Data`, enter `{{ $page.variables.genre }}`. This saves the value that the user types into our genre variable.
 
 ![](/images/lab300/300-david-search-6.png)<br>
-<br>
-</details>
 
-<details>
-<summary> Create Search Function </summary>
-<br>
+<b> Create Search Function</b>
 
 Next, let's copy over the Javascript code. Under the `JS` tab of our catalog page, copy and paste the two slightly modified functions below onto our search page. 
 
@@ -472,40 +468,32 @@ Next, let's copy over the Javascript code. Under the `JS` tab of our catalog pag
 ```
 
 ![](/images/lab300/300-david-search-7.png)<br>
-<br>
 
-<summary> Call Search Function </summary>
-<br>
+<b> Call Search Function </b>
 
-Now that we have our logic, let's bind this logic to an action. Under Designer view, click the Search button. Under the `Events` tab, click `New Event -> Quick Start Click`. 
+Now that we have our logic, let's bind this logic to an action. Under `Designer` view, click the `Search` button. Under the `Events` tab, click `New Event -> Quick Start Click`. 
 
 ![](/images/lab300/300-david-search-8.png)<br>
-<br>
 
 An action chain window has popped up. Drag over a `Call Module Function`. Click `Select Module Function`. Under "Page Functions", select our `loadImages` function.<br>
 
 ![](/images/lab300/300-david-search-9.png)<br>
-<br>
 
 Recall that our function now takes in a paramter, so on the right side under `Input Paramters`, map `inputGenre` to our `Genre` variable. Click `save`.<br> 
 
 ![](/images/lab300/300-david-search-10.png)<br>
-<br>
 
 Now perform the same steps for the `loadDescriptions` function (drag another module function in for the loadDescriptions function, and bind the paramters to the function). The end action chain should look like this: <br>
 
 ![](/images/lab300/300-david-search-11.png)<br>
-<br>
 
 Let's test our page out. Click the `Live` button at the top right corner. Enter in `Fantasy` and hit search. Our website now loads all the books with the fantasy genre! <i>(If the search button displays at the bottom of the page instead of the top, re-order the left-column and right-column HTML divs to the end of your page HTML code).</i>
 
 ![](/images/lab300/300-3-ds12.png)<br>
-<br>
 
 Try hitting the search button again. Uh oh, looks like the page is getting populated with the same books every time someone hits search. 
 
 ![](/images/lab300/300-david-search-13.png)<br>
-<br>
 
 We'll fix this by first removing the book images/descriptions every time someone hits search before loading the new images/descriptions.<br>
 
@@ -523,9 +511,10 @@ PageModule.prototype.resetPage = function () {
     }
   };
 ```
+
 ![](/images/lab300/300-david-search-14.png)<br>
 
-With this new function added, navigate to our action chain that invokes the loadImage and loadDescription functions. Add a new `module function` that calls on the resetPage function. 
+With this new function added, navigate to our action chain that invokes the `loadImage` and `loadDescription` functions. Add a new `module function` that calls on the resetPage function. 
 
 ![](/images/lab300/300-david-search-15.png)<br>
 
@@ -538,5 +527,3 @@ Now go back to the `Designer` view, click the submit button, and bind this actio
 ![](/images/lab300/300-david-search-17.png)<br>
 
 Try loading the page again. It works! We have now successfully implemented the search functionality.
-
-
