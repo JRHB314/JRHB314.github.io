@@ -1,5 +1,5 @@
 
-![](images/100/Picture100-lab.png)  
+![](images/lab100/Picture100-lab.png)  
 Updated: November 6, 2018
 
 ## Introduction
