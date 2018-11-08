@@ -1,0 +1,47 @@
+{
+    "workshop": {
+        "title": "VBCS Integration with Cloud Databases",
+        "description": "Connecting both Oracle and non-Oracle Databases, including relational, NoSQL, and graph databases, to VBCS.",
+        "theme": "default",
+        "interactive":"https://launch.oracle.com/?",
+        "labs": [
+            {
+                "number": "0",
+                "filename": "Intro.md",
+                "title": "Workshop Introduction",
+                "description": "Step-by-step workshop instructions"
+
+            },
+            {
+                "number": "100",
+                "filename": "LabGuide100.md",
+                "title": "Lab 100: Creating Your First Web App",
+                "description": "This lab will start with creating your first Web App in VBCS."
+
+            },
+            {
+                "number": "200",
+                "filename": "LabGuide200.md",
+                "title": "Lab 200:  Connecting VBCS to an Oracle Database",
+                "description": "Oracle offers quick tools to integrate Oracle Cloud Databases with VBCS."
+
+            },
+            {
+                "number": "300",
+                "filename": "LabGuide300.md",
+                "title": "Lab 300:  Connecting to Firebase Database",
+                "description": "Connecting VBCS to a Firebase Realtime Database."
+
+            },
+            {
+                "number": "400",
+                "filename": "LabGuide400.md",
+                "title": "Lab 400: Connecting VBCS to a Graph Database ",
+                "description": "Learning how Graph Databases work, specifically, a free Graph Database called Neo4j."
+
+            }
+
+
+        ]
+    }
+}
