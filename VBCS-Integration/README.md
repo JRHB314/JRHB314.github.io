@@ -9,5 +9,5 @@ Welcome to the VBCS Integration workshop. This will walk you through the process
 - <b>Lab 400</b> discusses graph databases on VBCS
 
 Navigate to the Intro page to get started with this lab. <br>
-Find it by clicking this icon on the top right:<br>
+Find it by clicking this icon on the top left:<br>
 ![](images/menuIcon.png)
