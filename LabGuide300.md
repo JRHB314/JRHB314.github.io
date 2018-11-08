@@ -16,8 +16,7 @@ Now we will try connecting to a non-Oracle Cloud Database; in this case, Google'
 
 ## Required Artifacts
 
-- Cloud trial account
-- Google account
+- Cloud trial account.
 
 # Lab 300
 
@@ -346,7 +345,7 @@ Test the page one more time, and we should see the book covers to the left of th
 ![](/images/lab300/300-3-21.png)<br>
 Great job!
 
-### **STEP 2**: Searching Books on VBCS
+### **STEP 3**: Searching Books on VBCS
 
 <b> Set Up Search Page </b>
 
@@ -359,7 +358,7 @@ Change "Welcome to the Home page" to say "Search". Drag and drop a `user input` 
 ![](/images/lab300/300-3-ds3.png)<br>
 
 Note, however, that we only have three tabs; we need to make one more tab for the new page.<br>
-* Briefly:<br>
+  Briefly:<br>
         * Copy and paste code for a new tab in each page.
         * Change the tab name to "Search" and the onclick listener to clickSearchTab.
         * Create an action chain navigateSearchPage at the flow level.
@@ -367,18 +366,11 @@ Note, however, that we only have three tabs; we need to make one more tab for th
 
 <i>Review Step 2. if you want more specific instructions.</i> 
 
-* Bullet list
-              * Nested bullet
-                  * Sub-nested bullet etc
-          * Bullet list item 2
-
 ![](/images/lab300/300-3-30.png)<br>
-<br>
 
-Now that we've finished our simple layout, we need to save the user's input into a variable. On the left side click the (x) icon to open up `Variables` page. Create a new variable and call it "genre".<br>
+Now that we've finished our simple layout, we need to save the user's input into a variable. On the left side click the `(x)` icon to open up `Variables` page. Create a new variable and call it `genre`.<br>
 
 ![](/images/lab300/300-david-search-5.png)<br>
-<br>
 
 Go back to the search page and click on the text input box. Under `Data`, enter `{{ $page.variables.genre }}`. This saves the value that the user types into our genre variable.
 
@@ -481,18 +473,17 @@ Next, let's copy over the Javascript code. Under the `JS` tab of our catalog pag
 ![](/images/lab300/300-david-search-7.png)<br>
 <br>
 
-<details>
-  <summary> Call Search Function </summary>
-  <br>
-  
-  Now that we have our logic, let's bind this logic to an action. Under Designer view, click the Search button. Under the `Events` tab, click `New Event -> Quick Start Click`. 
- 
- ![](/images/lab300/300-david-search-8.png)<br>
+<summary> Call Search Function </summary>
 <br>
- 
- An action chain window has popped up. Drag over a `Call Module Function`. Click `Select Module Function`. Under "Page Functions", select our `loadImages` function.<br>
- 
- ![](/images/lab300/300-david-search-9.png)<br>
+
+Now that we have our logic, let's bind this logic to an action. Under Designer view, click the Search button. Under the `Events` tab, click `New Event -> Quick Start Click`. 
+
+![](/images/lab300/300-david-search-8.png)<br>
+<br>
+
+An action chain window has popped up. Drag over a `Call Module Function`. Click `Select Module Function`. Under "Page Functions", select our `loadImages` function.<br>
+
+![](/images/lab300/300-david-search-9.png)<br>
 <br>
 
 Recall that our function now takes in a paramter, so on the right side under `Input Paramters`, map `inputGenre` to our `Genre` variable. Click `save`.<br> 
@@ -500,56 +491,51 @@ Recall that our function now takes in a paramter, so on the right side under `In
 ![](/images/lab300/300-david-search-10.png)<br>
 <br>
 
- Now perform the same steps for the `loadDescriptions` function (drag another module function in for the loadDescriptions function, and bind the paramters to the function). The end action chain should look like this: <br>
+Now perform the same steps for the `loadDescriptions` function (drag another module function in for the loadDescriptions function, and bind the paramters to the function). The end action chain should look like this: <br>
 
- ![](/images/lab300/300-david-search-11.png)<br>
+![](/images/lab300/300-david-search-11.png)<br>
 <br>
 
- Let's test our page out. Click the `Live` button at the top right corner. Enter in `Fantasy` and hit search. Our website now loads all the books with the fantasy genre! <i>(If the search button displays at the bottom of the page instead of the top, re-order the left-column and right-column HTML divs to the end of your page HTML code).</i>
- 
- ![](/images/lab300/300-3-ds12.png)<br>
+Let's test our page out. Click the `Live` button at the top right corner. Enter in `Fantasy` and hit search. Our website now loads all the books with the fantasy genre! <i>(If the search button displays at the bottom of the page instead of the top, re-order the left-column and right-column HTML divs to the end of your page HTML code).</i>
+
+![](/images/lab300/300-3-ds12.png)<br>
 <br>
- 
+
 Try hitting the search button again. Uh oh, looks like the page is getting populated with the same books every time someone hits search. 
 
 ![](/images/lab300/300-david-search-13.png)<br>
 <br>
 
 We'll fix this by first removing the book images/descriptions every time someone hits search before loading the new images/descriptions.<br>
- 
- Go to the `js` tab, and paste in the following function that will clear the book images/descriptions:
- 
- ```
-  PageModule.prototype.resetPage = function () {
-      const col1 = document.getElementById('leftColumn');
-      const col2 = document.getElementById('rightColumn');
-      while (col1.firstChild) { // while there are images, remove them
-        col1.removeChild(col1.firstChild);
-      }
-      while (col2.firstChild) { // while there are descriptions, remove them
-        col2.removeChild(col2.firstChild);
-      }
-    };
- ```
+
+Go to the `js` tab, and paste in the following function that will clear the book images/descriptions:
+
+```
+PageModule.prototype.resetPage = function () {
+    const col1 = document.getElementById('leftColumn');
+    const col2 = document.getElementById('rightColumn');
+    while (col1.firstChild) { // while there are images, remove them
+      col1.removeChild(col1.firstChild);
+    }
+    while (col2.firstChild) { // while there are descriptions, remove them
+      col2.removeChild(col2.firstChild);
+    }
+  };
+```
 ![](/images/lab300/300-david-search-14.png)<br>
-<br>
 
 With this new function added, navigate to our action chain that invokes the loadImage and loadDescription functions. Add a new `module function` that calls on the resetPage function. 
 
 ![](/images/lab300/300-david-search-15.png)<br>
-<br>
 
 ![](/images/lab300/300-david-search-16.png)<br>
-<br>
 
 ![](/images/lab300/300-david-search-21.png)<br>
-<br>
 
 Now go back to the `Designer` view, click the submit button, and bind this action chain to whenever someone clicks the search button. There are now three actions within this action chain. One to remove any previous search results, one to load descriptions, and the last to load images.
 
 ![](/images/lab300/300-david-search-17.png)<br>
-<br>
 
 Try loading the page again. It works! We have now successfully implemented the search functionality.
-</details>
+
 
