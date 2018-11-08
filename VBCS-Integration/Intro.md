@@ -1,6 +1,6 @@
 # VBCS Integration with Cloud Databases
 
-Welcome to the VBCS Integration workshop. This will walk you through the process of connecting both Oracle and non-Oracle Databases, including relational, NoSQL, and graph databases.
+There are just a few steps to get started.
 
 ### **Step 1**: Acquire an Oracle Cloud Trial or Workshop Account
 
