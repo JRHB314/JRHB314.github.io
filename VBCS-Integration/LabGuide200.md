@@ -1,4 +1,4 @@
-![](images/Picture-lab200.png)  
+![](images/lab200/Picture-lab200.png)  
 Updated: November 6, 2018
 
 ## Introduction
