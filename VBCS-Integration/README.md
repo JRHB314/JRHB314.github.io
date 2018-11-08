@@ -8,5 +8,5 @@ Welcome to the VBCS Integration workshop. This will walk you through the process
 - <b>Lab 300</b> shows how to work with a Firebase database
 - <b>Lab 400</b> discusses graph databases on VBCS
 
-Navigate to the Intro page to get started with this lab. Find it by clicking on this icon on the top right: 
+Navigate to the Intro page to get started with this lab. Find it by clicking this icon on the top right:   
 ![](images/menuIcon.png)
