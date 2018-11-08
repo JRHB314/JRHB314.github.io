@@ -366,7 +366,7 @@ Briefly:<br>
   * Create an action chain navigateSearchPage at the flow level.
   * Create an event listener on each page called clickSearchTab.
 
-<i>Review Step 2. if you want more specific instructions.</i> 
+<i>Review Step 2 for more specific instructions.</i> 
 
 ![](/images/lab300/300-3-30.png)<br>
 
@@ -514,6 +514,8 @@ PageModule.prototype.resetPage = function () {
     }
   };
 ```
+
+With the `resetPage` function added, the code now should look like:<br>
 
 ![](/images/lab300/300-david-search-14.png)<br>
 
