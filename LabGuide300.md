@@ -359,11 +359,12 @@ Change `Welcome to the Home page` to say `Search`. Drag and drop a `user input` 
 ![](/images/lab300/300-3-ds3.png)<br>
 
 Note, however, that we only have three tabs; we need to make one more tab for the new page.<br>
-  Briefly:<br>
-        * Copy and paste code for a new tab in each page.
-        * Change the tab name to "Search" and the onclick listener to clickSearchTab.
-        * Create an action chain navigateSearchPage at the flow level.
-        * Create an event listener on each page called clickSearchTab.
+
+Briefly:<br>
+  * Copy and paste code for a new tab in each page.
+  * Change the tab name to "Search" and the onclick listener to clickSearchTab.
+  * Create an action chain navigateSearchPage at the flow level.
+  * Create an event listener on each page called clickSearchTab.
 
 <i>Review Step 2. if you want more specific instructions.</i> 
 
@@ -467,6 +468,8 @@ Next, let's copy over the Javascript code. Under the `JS` tab of our catalog pag
     };
 ```
 
+The code should look like:<br>
+
 ![](/images/lab300/300-david-search-7.png)<br>
 
 <b> Call Search Function </b>
@@ -519,6 +522,8 @@ With this new function added, navigate to our action chain that invokes the `loa
 ![](/images/lab300/300-david-search-15.png)<br>
 
 ![](/images/lab300/300-david-search-16.png)<br>
+
+The final action chain should look like so:<br>
 
 ![](/images/lab300/300-david-search-21.png)<br>
 
