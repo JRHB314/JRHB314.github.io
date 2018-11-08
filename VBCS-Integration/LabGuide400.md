@@ -1,4 +1,4 @@
-![](images/Picture-lab400.png)  
+![](images/lab400/Picture-lab400.png)  
 Updated: November 6, 2018
 
 ## Introduction
@@ -30,27 +30,27 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
   <br>  
   
   GrapheneDB is an easy way to get up and running with Neo4j, with a free sandbox trial. <br> Visit [Graphene DB](https://app.graphenedb.com/) and sign up for an account. Login to the dashboard, then click `Create Database`.
-  ![](/images/david-gdb-1.png)<br>
+  ![](images/david-gdb-1.png)<br>
 <br>
 
   Select the free "Sandbox" tier.<br>
-  ![](/images/david-gdb-2.png)<br>
+  ![](images/david-gdb-2.png)<br>
 <br>
 
   Give your database a name. Leave the default Neo4j Version as 3.4.9 and click `Create Database`.<br>
-  ![](/images/david-gdb-3.png)<br>
+  ![](images/david-gdb-3.png)<br>
 <br>
 
   On the next page, a pop up should appear asking you to create a user. Click `Create user now`.<br>
-  ![](/images/david-gdb-4.png)<br>
+  ![](images/david-gdb-4.png)<br>
 <br>
 
   Give your user a Label with no expiration date and click `Create User`.<br>
-  ![](/images/david-gdb-5.png)<br>
+  ![](images/david-gdb-5.png)<br>
 <br>
 
   <b>Copy down your credentials. This is the only time you'll be able to see the password, so make a note of it.</b><br>
-  ![](/images/david-gdb-6.png)<br>
+  ![](images/david-gdb-6.png)<br>
 <br>
 
 
@@ -59,7 +59,7 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
   
   Let's just breifly go over the options available in GrapheneDB. <br>
 <br>
-![](/images/page1.png)<br>
+![](images/page1.png)<br>
   On the Overview page, we can see 
 1. The name of our database. 
 2. The type of database, it's storage usage, and an option to upgrade or clone it. 
@@ -69,12 +69,12 @@ In this part of the lab, we'll learn a bit about how Graph Databases work, and s
 
   Go ahead and click on `Launch` now. <br>
 <br>
-![](/images/browser.png)<br>
+![](images/browser.png)<br>
 
   At the very top is where we will put our Cypher code. The play button in the top right will then run these statements. Alternatively, the keyboard shortcut to run the code is ctrl+enter on Windows, or cmd+enter on Mac. The boxes below are where the results will be displayed; right now, it simply shows some starting information and our connection status. <br>
 <br>
   Back on GrapheneDB, take a look at the Connection tab.<br>
-![](/images/page2.png)<br>
+![](images/page2.png)<br>
 1. Shows private network access; since we are using a sandbox account, it is not available. However, we don't need it for this lab.
 2. Connection strings; we will be using the HTTP REST endpoint.
 3. Finally, it shows the Database users. There should be two; one, the database user you created when you created your database; two, the browser session we just opened. Browser sessions automatically expire after 12 hours, but it's simple to launch a new one. <br>
@@ -98,7 +98,7 @@ Those two tabs, plus the browser, are all we need to use for now.
   ```
   <b>Explanation</b>: In this code snippet, we are creating two users, referenced by userA and userB, of type "Person", with an attribute called "name". After we have the two nodes created, we create a relationship referenced by "rel" of type "FOLLOWS" between userA and userB. Notice that all nodes have a unique ID field (similar to primary keys in the relational database model).<br>
   
-  ![](/images/david-gdb-10.png)<br>
+  ![](images/david-gdb-10.png)<br>
 <br>
   With 2 nodes and a relationship successfully created, let's create a 3rd node and relationship. Enter the following code snippet in the console:
   ```
@@ -107,7 +107,7 @@ Those two tabs, plus the browser, are all we need to use for now.
   return userA, userC, rel
   ```
   
-  ![](/images/david-gdb-11.png)<br>
+  ![](images/david-gdb-11.png)<br>
 <br>
   Uh oh, it looks like the A node showed up blank. Why is that? We created userA in the previous Cypher statement, but because we are writing a separate Cypher statement, it has no idea how to reference that userA. That is, the references we create to nodes only last one statement, and can be changed in the next; "userA" is not stored as a property of "A". We could call it "N", "nodeA", or whatver we want, and it only has to be consistent within the query. <br>
   
@@ -120,20 +120,20 @@ Those two tabs, plus the browser, are all we need to use for now.
   return userA, userC, rel
 ```
 
-  ![](/images/david-gdb-12.png)<br>
+  ![](images/david-gdb-12.png)<br>
   Great! A is now properly following C.<br>
   <br>
   However, if we run `MATCH (n) RETURN (n)` to return all nodes, we'll see that there's still that empty node following C: 
 
-![](/images/david-gdb-13.png)<br>
+![](images/david-gdb-13.png)<br>
 <br>
 To get rid of it, hover over the invisible node, grab its id and run `MATCH (n) where id(n) = # DETACH DELETE n` where # is the ID of the node.<br>
 
-![](/images/david-gdb-14.png)<br>
+![](images/david-gdb-14.png)<br>
 <br>
 Also note that `MATCH (n) RETURN (n)` simply returns all nodes; it doesn't <i>technically</i> return their relationships. The Graph visualizer will show these relationships anyway, but the JSON returned (look at the `Table` tab) does not. To return all nodes and their relationships, run `MATCH (n)-[r]->(m) RETURN n,r,m;`.
 
-![](/images/david-gdb-15.png)<br>
+![](images/david-gdb-15.png)<br>
 <br>
 OK! Everything looks correct. Now let's say that we want userC to be followed by 5 other users. We could create 5 followers and then define their relationship with userC, but the easier approach would be to use a `FOREACH` loop:
   
@@ -145,7 +145,7 @@ OK! Everything looks correct. Now let's say that we want userC to be followed by
   
   Your graph should look like:<br>
   
-  ![](/images/david-gdb-16.png)<br>
+  ![](images/david-gdb-16.png)<br>
 <br>
   Notice that here in the relationship, we don't need to write `[rel:FOLLOWS]` because we are simply creating the relationship, and don't reference it later in the query.<br>
   
@@ -156,7 +156,7 @@ OK! Everything looks correct. Now let's say that we want userC to be followed by
   RETURN cFollowers
   ```
   
-  ![](/images/david-gdb-17.png)<br>
+  ![](images/david-gdb-17.png)<br>
 <br> 
   Now that we've had a little practice with Neo4j and graph databases, let's jump into creating the actual data we'll use to mimic our "Instagram model". We need a clean start, so let's reset the database with:
   ```
@@ -176,7 +176,7 @@ OK! Everything looks correct. Now let's say that we want userC to be followed by
   
   View all the current nodes/relationships: `MATCH (n)-[r]->(m) RETURN n,r,m;`.<br>
   
-  ![](/images/david-gdb-18.png)<br>
+  ![](images/david-gdb-18.png)<br>
 <br>
   
   Now that we have a person named Rachel Webb along with some people that follower her, let's give her followers their own followers: 
@@ -190,19 +190,19 @@ OK! Everything looks correct. Now let's say that we want userC to be followed by
   
   Verify that your graph looks like this:<br>
   
- ![](/images/david-gdb-19.png)<br>
+ ![](images/david-gdb-19.png)<br>
 <br> 
   
   We just gave Sam Archer 3 followers. In this code snippet, we use `MERGE` instead of `CREATE` since we want to either create a relationship for an existing node, or, if our node doesn't yet exist, create it. userID is an arbitrary reference we give to the creation of these new nodes when using the `MERGE` function. Remember, these references can be named anything we want; these names were chosen to be easy to understand.<br>
   
   Let's continue to add followers. Go to the resources folder, copy and paste the code in "CreateFollowers" into the browser console and run it.<br> 
   
-  ![](/images/david-gdb-21.png)<br>
+  ![](images/david-gdb-21.png)<br>
 <br> 
   
   At this point your graph probably looks a bit messy, but your graph should resemble something like this:<br>
   
-  ![](/images/david-gdb-20.png)<br>
+  ![](images/david-gdb-20.png)<br>
 <br> 
   
 <br>
@@ -232,7 +232,7 @@ OK! Everything looks correct. Now let's say that we want userC to be followed by
   
   Next, we'll want to add a little more detail to these users. We'll add a profile picture and a quote for each user. Again, go to the resources folder in this directory, this time copying and pasting the code from the AddInformation file.<br>
   
-  ![](/images/david-gdb-22.png)<br>
+  ![](images/david-gdb-22.png)<br>
 <br>
   
   Each statement follows this basic format:
@@ -257,22 +257,22 @@ First we MATCH "n" to the node with name "UserName". Then we use SET to add thes
   Let's go ahead and create an entirely new web app, as this lab does not relate to our Library website. Click the computer icon on the far left, then hit the plus sign next to Web Apps. Name it whatever you like.<br>
 <br>
 The first thing to do is drag and drop an Input Text component into the top left of the page. Change the label to be one column big by clicking on it, then draging the little box on the edge. Change its text to say "Search Name". Move over the text field to be right next to the label, and change it to be two columns wide. To the right of that, drag on a button, and have it say "Search". <br>
-![](/images/4-10.png)<br>
+![](images/4-10.png)<br>
 <br>
 In the next row, drag a Panel. By default, it fills the page horizontally, but this isn't what we want. We also can't drag the component to resize it the way we can most components. Go to the Code view and find the `oj-panel` div. You'll see something that says "oj-sm-12 oj-md-12". These indicate the how many columns the component should take up for "small" and "medium" views of the page. For this we will be working with medium screens, so change oj-md to oj-md-5. <br>
-![](/images/4-11.png)<br>
+![](images/4-11.png)<br>
 <br>
 Inside the panel, at the very left, drag on a Heading component. Drag the slider bar under the General tab so that it is only H4. Call this "Username".<br>
-![](/images/4-12.png)<br>
+![](images/4-12.png)<br>
 <br>
 Now let's add a picture. This will be the searched user's profile picture. Drag and drop an Image component into the left side of the panel underneath Username. Drag an edge so it becomes four columns wide. In the General tab on the right, set width and height to 100. Next to the image we want to have three rows, so drag on a Flex Container object. Make sure it is only three columns wide. Drag and drop three Text components inside this container so that they are stack vertically. Name the first "Followers:", the second "Following:", and the third "Mutuals:". <br>
-![](/images/4-13.png)<br>
+![](images/4-13.png)<br>
 <br>
 To the left of these, we want to have three more Text components that will be filled with the follower, following, and mutual counts. Drag and drop another Flex Container to the right of the first, and add three Text components, each named "count". We will replace these with variables in a moment. Below the image, drag and drop one last Text component. Fill in "quote" for this field.<br>
-![](/images/4-14.png)<br>
+![](images/4-14.png)<br>
 <br>
 Keep in mind, if you lose track of a component or have trouble clicking on something to customize it, you can open up the Page Structure.<br>
-![](/images/4-15.png)<br>
+![](images/4-15.png)<br>
 <br>
 Click the icon again to close it.<br>
 <br>
@@ -284,8 +284,8 @@ Next we need to create some String variables to be bound to our components.<br>
 -followingCount: will hold the returned following count. Put this in the Data field of the middle "count" text.<br>
 -mutualCount: will hold the returned mutuals count. Put this in the Data field of the bottom "count" text.<br>
 -favoriteQuote: will hold the returned quote. Put this in the Data field of the "Quote" text. Set default value to "Favorite Quote".
-![](/images/4-16.png)<br>
-![](/images/4-17.png)<br>
+![](images/4-16.png)<br>
+![](images/4-17.png)<br>
 Note that "count"s disappeared. Since those variables don't have a default value, they start out as empty Strings.<br>
 <br>
 
@@ -293,19 +293,19 @@ Note that "count"s disappeared. Since those variables don't have a default value
   <br>
  
   We are ready to set up our Service Connection. In Lab 300 we called the REST endpoint in our Javascript, but VBCS actually offers a nice feature to make REST calls without (much) coding. On the far left, hit the icon that looks like a wire with a bump in it (the third from the top) and then hit the plus sign to create a new Service Connection. Choose Define by Endpoint.<br>
-![](/images/4-18.png)<br>
+![](images/4-18.png)<br>
 <br>
 Now, we need our REST endpoint URL. Reopen your GrapheneDB Database, and go to the Connection tab. There you will find your HTTP REST endpoint.<br>
-![](/images/4-19.png)<br>
+![](images/4-19.png)<br>
 <br>
 Copy and paste that URL on VBCS, then add `/transaction/commit` to the end of it. Change Method to POST. <br>
-![](/images/4-20.png)<br>
+![](images/4-20.png)<br>
 <br>
 Hit next. Change Service Name to "Neo4j Get User Data". <br>
-![](/images/4-21.png)<br>
+![](images/4-21.png)<br>
 <br>
 Go to the Authentication tab, and choose `Basic` from the dropdown. You should have already made a database user in GrapheneDB; if not, review part 1 of this lab. Enter in the username and password for this user. <b>This is not the same as your GrapheneDB account.</b> <br>
-![](/images/4-22.png)<br>
+![](images/4-22.png)<br>
 <br>
 On the Request tab, copy and paste this code:
 ```
@@ -355,13 +355,13 @@ In the top right of the response, hit `Copy to Response Body`. Now hit Create.<b
   <b> Endpoint </b>
   
   <br>This means we can set up an Action Chain. Back on our web page, click the search button to go to its Events tab; hit `New Event`, then `QuickStart: click`. <br>
-![](/images/4-22.5.png)<br>
+![](images/4-22.5.png)<br>
 <br>
 Drag a Call REST Endpoint action onto the plus sign in the chain, then click `Select Endpoint`.<br>
-![](/images/4-23.png)<br>
+![](images/4-23.png)<br>
 <br>
 Expand `Service Connections` and select the endpoint we just created. <br>
-![](/images/4-24.png)<br>
+![](images/4-24.png)<br>
 <br>
 Note, the service connection above has a slightly different name than the one suggested. This should not make a difference.<br>
 <br>
@@ -373,20 +373,20 @@ Together with the searchUsername, it will be <br>
 `{  "statements": [   {    "statement": "MATCH (user:Person {name: 'searchUsername'}) return user"   }  ] }`. <br>
 <br>
 Go back to the action chain. Click on the REST Call action, and then click on the body paramater. <br>
-![](/images/4-25.png)<br>
+![](images/4-25.png)<br>
 <br>
 Drag getDataPt1, then searchUsername, then getDataPt2, onto body. <br>
-![](/images/4-26.png)<br>
+![](images/4-26.png)<br>
 <br>
 Great! The request should be correctly formatted. Now, to display the response, we need to do one more action. Drag a Assign Variables action onto the next step in the chain, then hit `Assign` next to `Variables`. <br>
 On the left, expand callRestEndpoint1 -> body -> results -> item[0] -> data -> item[o] -> row -> item[0], until it looks like this:<br>
-![](/images/4-27.png)<br>
+![](images/4-27.png)<br>
 <br>
 Drag `image` on the left to `imageURL` on the right, `name` on the left to `username` on the left, and `quotes` on the left to `favoriteQuote` on the right. Then hit `Save`. <br>
-![](/images/4-28.png)<br>
+![](images/4-28.png)<br>
 <br>
 Test your website! Enter in AprilGold for the username, then hit search. You should see this:<br>
-![](/images/4-29.png)<br>
+![](images/4-29.png)<br>
 <br>
 
 
@@ -473,13 +473,13 @@ Create two variables:
 -title, which will hold the heading for our list
 -relationsList, which will hold the returned list
 On page designer, drag and drop a Heading component below the panel, and set its Text value to `title`. Right below that, drag and drop a Paragraph component. Make it only one column wide. This will force the line to wrap, so that each listed user appears on a new line. Set its Text value to `relationsList`. <br>
-![](/images/lab400/4-40.png)<br>
+![](images/lab400/4-40.png)<br>
 <br>
 Next we need three onClick listeners for our three labels. Create three action chains, called `loadFollowers`, `loadFollowing`, and `loadMutuals`. Leave them blank for right now. <br>
-![](/images/lab400/4-41.png)<br>
+![](images/lab400/4-41.png)<br>
 <br>
 Similarly, create three Other Events, `followersClick`, `followingClick`, and `mutualsClick`. Select their corresponding action chain.<br>
-![](/images/lab400/4-42.png)<br>
+![](images/lab400/4-42.png)<br>
 <br>
 To make it more obvious that the words are clickable, we are going to style them. Go to the Code view of the page and insert this code at the top:
 ```
@@ -496,14 +496,14 @@ cursor: pointer;
 We set the color to a nice aqua; underline it; and have the cursor turn into a pointer when it hovers over the text.<br>
 <br>
 The HTML for the three words will have to be replaced; simply surrounding the oj-bind-text in a div class will not work here. Instead we'll turn it into plain text surround by our clickableText div class.<br>
-![](/images/lab400/4-43.png)<br>
+![](images/lab400/4-43.png)<br>
 <br>
 Back on Design view:<br>
-![](/images/lab400/4-44.png)<br>
+![](images/lab400/4-44.png)<br>
 <br>
 
 Back to Code view once more, let's add our onClickListeners. <br>
-![](/images/lab400/4-45.png)<br>
+![](images/lab400/4-45.png)<br>
 <br>
 
   <b> Followers, Following, and Mutuals Listed </b>
