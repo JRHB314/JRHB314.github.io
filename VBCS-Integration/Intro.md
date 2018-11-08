@@ -10,7 +10,7 @@ There are just a few steps to get started.
 
   - Soon after requesting your trial you will receive the following email. You will not be able to begin the workshop until you have received it.
 
-{img}
+![](images/trial.png)
 
 
 
