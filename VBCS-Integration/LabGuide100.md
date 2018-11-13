@@ -43,11 +43,11 @@ At the top right of the page, hit `Create Instance`, which will create the under
 
 ![](images/lab100/100-5.png)<br>
 
-Enter an instance name, and leave the region as the default value `us-ashburn-1`. Click `next`.<br>
+Enter an instance name, and leave the region as the default value `us-ashburn-1`. Click `Next`.<br>
 
 ![](images/lab100/100-06.png)<br>
 
-Verify that everything is correct, then click `Create`.
+Verify that everything is correct, then click `Create`.<br>
 
 ![](images/lab100/100-07.png)<br>
 
@@ -59,13 +59,13 @@ Once the instance has been provisioned, click `Open Visual Builder Home Page`.<b
 
 ![](images/lab100/100-09.png)<br>
 
-Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New Application`.
+Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New Application`.<br>
 
 <br>![](images/lab100/100-10.png)<br>
 
-Name the application whatever you like; the `Description` field is optional. 
+Name the application whatever you like; the `Description` field is optional.<br>
 
-
+<br>![](images/lab100/100-11.png)<br>
 
 Your new Application should open automatically. 
 
