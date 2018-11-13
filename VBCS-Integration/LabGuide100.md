@@ -33,27 +33,37 @@ Sign in to your Cloud Account. <br>
 ![](images/lab100/100-1.png) <br>
 ![](images/lab100/100-2.png) <br>
 
-Navigate to `Cloud Dashboard`, then open the Visual Builder Service Console. If Visual Builder is not visible, click `Customize Dashboard`, then scroll to Visual Builder in the list and hit `Show`.<br>
+Navigate to `Cloud Dashboard`, then open the Autonomous Visual Builder Service Console. If Autonomous Visual Builder is not visible, click `Customize Dashboard`, then scroll to Autonomous Visual Builder in the list and hit `Show`.<br>
 
 ![](images/lab100/100-3.png) <br>
 
 <b>Create Visual Builder Instance</b>
 
-At the top right of the page, hit `Quick Starts`. This will allow us to create the underlying infrastructure for VBCS at the same time that we create the VBCS instance rather than making them separately. Simply name the instance and then hit `Create`. If you don't care about configuring the database that your instance will run on, this is the way to go. 
-
-Alternatively, you can hit the `Customize` button on the top right. This would allow you to configure the database that is created. For the purpose of this lab, we'll stick to the default QuickStart configuration.
+At the top right of the page, hit `Create Instance`, which will create the underlying infrastructure for VBCS.<br>
 
 ![](images/lab100/100-5.png)<br>
 
-Next, download the generated SSH key and credentials in order to continue, which will allow you to access your instance.
+Enter an instance name, and leave the region as the default value `us-ashburn-1`. Click `next`.<br>
 
-<br>![](images/lab100/100-12.png)<br>
+![](images/lab100/100-06.png)<br>
 
-Your instance will take some time to provision. When it's ready, open the `Visual Builder Home Page`.
+Verify that everything is correct, then click `Create`.
 
-<br>![](images/lab100/100-8.png)<br>
+![](images/lab100/100-07.png)<br>
 
-Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New` in the top right. 
+The instance is now being provisioned. This will take a couple of minutes.<br>
+
+![](images/lab100/100-08.png)<br>
+
+Once the instance has been provisioned, click `Open Visual Builder Home Page`.<br>
+
+![](images/lab100/100-09.png)<br>
+
+You should now see this page:<br>
+
+![](images/lab100/100-10.png)<br>
+
+Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New Application`. 
 
 <br>![](images/lab100/100-9.png)<br>
 
