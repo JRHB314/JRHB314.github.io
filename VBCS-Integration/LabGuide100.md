@@ -73,11 +73,7 @@ Your new Application should open automatically.
 
 <b>Customize Web App</b>
 
-On the left, hit the computer icon for `Web Apps`, then the `+` to create a new Web App. Name it, then hit `Create`. 
-
-<br>![](images/lab100/100-11.png)<br>
-
-A blank page will open in the center, with a `Components Bar` to the left and `Component Customization` on the right.<br>
+On the left, hit the computer icon for `Web Apps`, then the `+` to create a new Web App. Name it, then hit `Create`. A blank page will open in the center, with a `Components Bar` to the left and `Component Customization` on the right as shown below:<br>
 
 ![](images/lab100/100-14.png)<br>
 
