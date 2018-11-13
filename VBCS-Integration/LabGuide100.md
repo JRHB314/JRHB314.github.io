@@ -59,17 +59,13 @@ Once the instance has been provisioned, click `Open Visual Builder Home Page`.<b
 
 ![](images/lab100/100-09.png)<br>
 
-You should now see this page:<br>
+Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New Application`.
 
-![](images/lab100/100-10.png)<br>
-
-Now, we need to create a Visual Application. A single Visual Application can hold many mobile and web apps. From the home page, hit `New Application`. 
-
-<br>![](images/lab100/100-9.png)<br>
+<br>![](images/lab100/100-10.png)<br>
 
 Name the application whatever you like; the `Description` field is optional. 
 
-<br>![](images/lab100/100-10.png)<br>
+
 
 Your new Application should open automatically. 
 
